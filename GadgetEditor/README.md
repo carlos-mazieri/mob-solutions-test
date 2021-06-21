@@ -32,6 +32,5 @@ For debbuging purposes, **Player** initializes **"struct items"** with random va
    - Parses the Meta Objects to create all Editors (sub classes of **GadgetEditor** class)
    - Handles the adding/removing of "struct items" editors and ***containers***.
    
-   Struct items
-    For each Q_GADGET instance it creates a child ***container***  of the  ***container*** created by **GadgetEditorStruct** object
+   For each **"struct item"** Q_GADGET instance it creates a child ***container***  of the  ***container*** created by **GadgetEditorStruct** object.
     
