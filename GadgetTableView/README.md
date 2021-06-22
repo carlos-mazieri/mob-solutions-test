@@ -16,7 +16,7 @@ The model has a new property **numberOfRows** to say how many rows must be gener
 ```
 ##CustomListView
 Uses the GadgetHelper::columnList() to create its set of **TableViewColumn** objects.
-# The current solution does not for Qt6
+# The current solution does not work for Qt6
 QtQuick.Controls version 1.4 is not present in Qt6.
 
 No other solution than creating  **CustomModel** as a C++ object was found, and, it was not the definition.
