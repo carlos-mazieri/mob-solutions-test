@@ -28,6 +28,7 @@ public:
     QWidget*      label() const;
     QWidget*      editor() const;
     FrameGrided*  parentWidget() const;
+    const char *  name() const;
     virtual QVariant read() const;
 protected:    
     void write(const QVariant& data);

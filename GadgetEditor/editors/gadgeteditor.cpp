@@ -35,6 +35,11 @@ FrameGrided *GadgetEditor::parentWidget() const
     return m_parentWidget;
 }
 
+const char *GadgetEditor::name() const
+{
+    return m_property.name();
+}
+
 QVariant GadgetEditor::read() const
 {
     return m_property.readOnGadget(m_gadget);

@@ -15,7 +15,8 @@ public:
     void createMetaEditor(void *gadgetObject,
                           QMetaObject *metaGadgetObject,
                           QMetaObject *metaStructGadget);
-
+public slots:
+    void  saveJsonFile(bool ok);
 private:
     GridWidget*   m_mainWidget;
 };
