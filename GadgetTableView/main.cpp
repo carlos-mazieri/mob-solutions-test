@@ -17,9 +17,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);  
     qRegisterMetaType<Player>("Player");
     qRegisterMetaType<P2D>("P2D");
-  //  qRegisterMetaType<GadgetHelper>("GadgetHelper");
-  //  const char *uri = "custom.gadgets";
-   // qmlRegisterType<GadgetHelper>(uri, 1, 0, "GadgetHelper");
+
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
