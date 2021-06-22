@@ -31,6 +31,7 @@ set(PROJECT_SOURCES   src/main.cpp
     src/scrollarea.h  src/scrollarea.cpp
     src/gridwidget.h  src/gridwidget.cpp
     src/gadgeteditorfactory.h src/gadgeteditorfactory.cpp
+    src/jsongenerator.h   src/jsongenerator.cpp
     editors/framegrided.h     editors/framegrided.cpp
     editors/gadgeteditor.h    editors/gadgeteditor.cpp
     editors/gadgeteditorstruct.h     editors/gadgeteditorstruct.cpp
