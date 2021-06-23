@@ -9,7 +9,10 @@ class GadgetEditorEnumerator : public GadgetEditor
 {
     Q_OBJECT
 public:
-    explicit GadgetEditorEnumerator(void *gadget, const QMetaProperty property, FrameGrided *parent = nullptr);
+    explicit GadgetEditorEnumerator(void *gadget,
+                                    const QMetaProperty property,
+                                    FrameGrided *parent = nullptr);
+    QVariant read() const override;
 protected:
     void createWidgetEditor() override;
 protected slots:

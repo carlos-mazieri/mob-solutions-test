@@ -7,7 +7,15 @@
 GadgetEditorEnumerator::GadgetEditorEnumerator(void *gadget, const QMetaProperty property, FrameGrided *parent)
     : GadgetEditor(gadget, property, parent)
 {
-     createWidgetEditor();
+    createWidgetEditor();
+}
+
+QVariant GadgetEditorEnumerator::read() const
+{
+    int currentIndex = GadgetEditor::read().toInt();
+    auto metaEnum = m_property.enumerator();
+    QString strValue(metaEnum.key(currentIndex));
+    return strValue;
 }
 
 void GadgetEditorEnumerator::createWidgetEditor()

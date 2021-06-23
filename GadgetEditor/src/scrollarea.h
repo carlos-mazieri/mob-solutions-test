@@ -19,5 +19,6 @@ public slots:
     void  saveJsonFile(bool ok);
 private:
     GridWidget*   m_mainWidget;
+    QString       m_saveDir;
 };
 #endif // WIDGET_H

@@ -13,6 +13,7 @@
 
 ScrollArea::ScrollArea(QWidget *parent)
     : QScrollArea(parent)
+    , m_saveDir(QDir::homePath())
 {    
     m_mainWidget = new GridWidget(this);
 
@@ -54,8 +55,8 @@ void ScrollArea::saveJsonFile(bool ok)
         return;
     }
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save as Json"),
-                               QDir::homePath(),
-                               tr("Json files (*.json"));
+                               m_saveDir,
+                               tr("Json files *.json"));
     QLatin1String jsonSuffix("json");
     if (QFileInfo(fileName).suffix() != jsonSuffix)
     {
@@ -73,6 +74,7 @@ void ScrollArea::saveJsonFile(bool ok)
             {
                 saved = true;
                 jsonFile.close();
+                m_saveDir = QFileInfo(fileName).absoluteDir().absolutePath();
             }
         }
         if ( saved == false)
