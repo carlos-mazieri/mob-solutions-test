@@ -52,14 +52,16 @@ GadgetEditorFactory::~GadgetEditorFactory()
 
 void GadgetEditorFactory::onCounterItemsChanged()
 {
+    static const int numberOfColumns = 2;
     auto itemsOnGadgetStruct = m_editorCounter->read().toInt();
+    auto itensOnGrid = m_frameStruct->gridLayout()->count() / numberOfColumns;
     // add if necessary
-    for(; m_itemsOnGrid < itemsOnGadgetStruct; m_itemsOnGrid++)
+    for(; itensOnGrid < itemsOnGadgetStruct; itensOnGrid++)
     {
-        createStructEditorItem(m_itemsOnGrid);
+        createStructEditorItem(itensOnGrid);
     }
     // remove if necessary
-    for(; m_itemsOnGrid > itemsOnGadgetStruct; m_itemsOnGrid--)
+    for(; itensOnGrid > itemsOnGadgetStruct; itensOnGrid--)
     {
         removeLastStructEditorItem();
     }

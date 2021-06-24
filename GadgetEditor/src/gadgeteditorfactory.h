@@ -38,9 +38,7 @@ private:
     GadgetEditorStruct* m_editorStruct  = nullptr;  // this is the array struct
     QString       m_labelStructItem;    // default label plus a counter for each object on struct
     QMetaObject * m_metaGadgetStruct;   // meta Object to create
-    FrameGrided * m_frameStruct = nullptr;
-    // keep internal counter as QLayoutGrid::rowCounter() seems to always start with 1
-    int           m_itemsOnGrid = 0;
+    FrameGrided * m_frameStruct = nullptr;   
 };
 
 #endif // GADGETEDITORFACTORY_H
