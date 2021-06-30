@@ -2,15 +2,20 @@
 #include <QMetaProperty>
 #include <QMetaEnum>
 #include <QJsonObject>
+#include <QJsonDocument>
+//#include <QQmlComponent>
+#include <QUrl>
+//#include <QQmlProperty>
 
+GadgetHelper * GadgetHelper::m_instance = 0;
 
-
-GadgetHelper::GadgetHelper(QMetaObject *metaGadget, QObject *parent)
+GadgetHelper::GadgetHelper(QMetaObject *metaGadget,                         
+                           QObject *parent)
     : QObject(parent)
     , m_metaGadget(metaGadget)
-    , m_enum_key("NotAvailable")
+    , m_enum_key("NotAvailable")   
 {
-
+    m_instance = this;
 }
 
 QVariantList GadgetHelper::columnList() const
@@ -96,6 +101,19 @@ QJsonObject GadgetHelper::generateModelRow()
      }
      generateFuzzyValues();
      return row;
+}
+
+QByteArray GadgetHelper::generateJsonRow()
+{
+    auto jsonObj = generateModelRow();
+    QJsonDocument doc(jsonObj);
+    return doc.toJson();
+}
+
+
+GadgetHelper *GadgetHelper::getHelper()
+{
+    return m_instance;
 }
 
 void GadgetHelper::generateFuzzyValues()

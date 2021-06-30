@@ -2,8 +2,11 @@ Chosen solution was to create the QObject helper class **GadgetHelper**.
 
 This object is created in the main() receiving the Gadget MetaObject information.
 
+#CustomModel C++ model to match both Qt5 and Qt6
+It was necessary to create a C++ model, the view does not ask for Headers.
+
 #QML files
-##CustomModel
+####CustomListView
 Uses the GadgetHelper::generateModelRow() to generate randomic data for a single row.
 
 The model has a new property **numberOfRows** to say how many rows must be generated.
@@ -14,10 +17,4 @@ The model has a new property **numberOfRows** to say how many rows must be gener
       numberOfRows: 15
     }
 ```
-##CustomListView
-Uses the GadgetHelper::columnList() to create its set of **TableViewColumn** objects.
-# The current solution does not work for Qt6
-QtQuick.Controls version 1.4 is not present in Qt6.
-
-No other solution than creating  **CustomModel** as a C++ object was found, and, it was not the definition.
 

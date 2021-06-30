@@ -1,29 +1,39 @@
-import QtQuick 2.15
-import QtQuick.Window 2.15
-import QtQuick.Controls 1.4
+import QtQuick 2.12
+import QtQuick.Window 2.0
+import com.test.models 1.0
+
 
 TableView {
     id: root
     anchors.fill: parent
-    clip: true
+    anchors.margins: 20
+    rowSpacing: 5
+    columnSpacing: 5
 
-    Component {
-        id: columnComponent
-        TableViewColumn { width: 150 }
-    }
-    Component.onCompleted:
-    {
-        var roleList = gadgetHelper.columnList();
-        for(var i=0; i<roleList.length; i++)
-        {
-            var role  = roleList[i]         
-            var column = columnComponent.createObject(root, { "role": role, "title": role})
-            root.addColumn(column);
-        }
-    }
+    clip: true
+    visible: true
+
+    delegate: cellDelegate
 
     model: CustomModel {
-      id: fuzzyModel
-      numberOfRows: 15
+        id: fuzzyModel
+        numberOfRows: 15
+    }
+
+    // a delegate is mandaory to have a call to QAbstractTableModel::data()
+    Component {
+        id: cellDelegate
+
+        Rectangle {
+            border.color: "black"
+      //      color: row === 0 ? "lightgreen" : "transparent"
+            implicitHeight: 40
+            implicitWidth: 80
+
+            Text {
+                anchors.centerIn: parent
+                text: display
+            }
+        }
     }
 }

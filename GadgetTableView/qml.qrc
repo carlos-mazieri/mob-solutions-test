@@ -2,6 +2,5 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>CustomTableView.qml</file>
-        <file>CustomModel.qml</file>
     </qresource>
 </RCC>

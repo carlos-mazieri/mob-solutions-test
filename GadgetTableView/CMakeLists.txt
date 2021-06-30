@@ -33,10 +33,13 @@ set(PROJECT_SOURCES
         ../common/gadgets/gadgethelper.h ../common/gadgets/gadgethelper.cpp
         ../common/gadgets/p2d.cpp     ../common/gadgets/p2d.h
         ../common/gadgets/player.cpp  ../common/gadgets/player.h
+        custommodel.h custommodel.cpp
 )
 
 include_directories(../common)
 
+
+add_definitions(-DQT_DEPRECATED_WARNINGS)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(GadgetTableView

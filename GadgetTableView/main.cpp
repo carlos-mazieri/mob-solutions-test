@@ -2,6 +2,8 @@
 #include "gadgets/player.h"
 #include "gadgets/gadgethelper.h"
 
+#include <custommodel.h>
+
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlEngine>
@@ -17,6 +19,8 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);  
     qRegisterMetaType<Player>("Player");
     qRegisterMetaType<P2D>("P2D");
+    qmlRegisterType<CustomModel>("com.test.models", 1, 0, "CustomModel");
+
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

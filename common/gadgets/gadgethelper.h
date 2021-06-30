@@ -7,14 +7,19 @@
 #include <QJsonObject>
 #include <QString>
 
+class QQmlEngine;
+
 
 class GadgetHelper : public QObject
 {
     Q_OBJECT
 public:
-    explicit GadgetHelper(QMetaObject * metaGadget, QObject *parent = nullptr);   
+    explicit GadgetHelper(QMetaObject * metaGadget,
+                          QObject *parent = nullptr);
     Q_INVOKABLE QVariantList      columnList() const;
     Q_INVOKABLE QJsonObject       generateModelRow();
+    Q_INVOKABLE QByteArray        generateJsonRow(); 
+    static GadgetHelper*          getHelper();
 private:
     void generateFuzzyValues();
 private:
@@ -26,7 +31,8 @@ private:
     bool          m_bool_value  = true;
     quint8        m_char_value  = 0;
     short         m_short_value = 0;
-    int           m_int_value   = 0;
+    int           m_int_value   = 0;  
+    static        GadgetHelper *m_instance;
 };
 
 
